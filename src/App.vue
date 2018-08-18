@@ -1,7 +1,13 @@
 <template>
 	<div id="app">
-		<h1>Poe Currency Node Generator</h1>
-		<CurrencyForm/>
+		<el-container>
+			<el-header>
+				<h2>Poe Currency Node Generator</h2>
+			</el-header>
+			<el-main>
+				<CurrencyForm></CurrencyForm>
+			</el-main>
+		</el-container>
 	</div>
 </template>
 
@@ -9,6 +15,9 @@
 	import CurrencyForm from './components/CurrencyForm.vue'
 
 	export default {
+		data() {
+			return {}
+		},
 		name: 'app',
 		components: {
 			CurrencyForm
