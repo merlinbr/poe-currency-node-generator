@@ -64,4 +64,15 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+	.currency-select {
+		width: 17em;
+	}
+	.currency-Amount {
+		width: 10em;
+		margin-left: 1em;
+		margin-top: 1em;
+	}
+	.sub-title {
+		margin: 0.8em 0 0 0;
+	}
 </style>
