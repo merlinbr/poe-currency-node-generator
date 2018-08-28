@@ -29,6 +29,11 @@
     ],
     "parserOptions": {
       "parser": "babel-eslint"
+    },
+    "rules": {
+      "vue/html-indent": "warning",
+      "vue/max-attributes-per-line": "warning",
+      "vue/html-self-closing": "warning"
     }
   },
   "postcss": {
