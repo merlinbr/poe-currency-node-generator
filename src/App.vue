@@ -4,9 +4,7 @@
 			<el-header>
 				<h2>Poe Currency Node Generator</h2>
 			</el-header>
-			<el-main>
-				<CurrencyForm></CurrencyForm>
-			</el-main>
+			<CurrencyForm></CurrencyForm>
 		</el-container>
 	</div>
 </template>
@@ -36,6 +34,6 @@
 		-moz-osx-font-smoothing: grayscale;
 		text-align: center;
 		color: white;
-		margin-top: 60px;
+		margin-top: 30px;
 	}
 </style>
