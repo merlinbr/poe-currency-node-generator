@@ -1,14 +1,38 @@
 <template>
-	<el-container>
-		<el-select v-model="emptyValue" filterable placeholder="Select">
-			<el-option
-					v-for="item in options"
-					:key="item.value"
-					:label="item.label"
-					:value="item.value">
-			</el-option>
-		</el-select>
-	</el-container>
+	<el-main>
+		<el-row :gutter="20" align="center">
+			<el-col class="grid-content">
+				<h2 class="sub-title">Currency that you want to sell</h2>
+			</el-col>
+		</el-row>
+		<el-row>
+			<el-select v-model="emptySellValue" filterable placeholder="Select" class="currency-select">
+				<el-option
+						v-for="item in options"
+						:key="item.value"
+						:label="item.label"
+						:value="item.value">
+				</el-option>
+			</el-select>
+			<el-input placeholder="Amount" type="number" v-model="sellAmount" class="currency-Amount"></el-input>
+		</el-row>
+		<el-row :gutter="20" align="center">
+			<el-col class="grid-content">
+				<h2 class="sub-title">Currency that you want to buy</h2>
+			</el-col>
+		</el-row>
+		<el-row>
+			<el-select v-model="emptyBuyValue" filterable placeholder="Select" class="currency-select">
+				<el-option
+						v-for="item in options"
+						:key="item.value"
+						:label="item.label"
+						:value="item.value">
+				</el-option>
+			</el-select>
+			<el-input placeholder="Amount" type="number" v-model="buyAmount" class="currency-Amount"></el-input>
+		</el-row>
+	</el-main>
 </template>
 
 <script>
