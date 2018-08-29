@@ -38,7 +38,7 @@
 				</el-row>
 			</el-form-item>
 			<el-form-item>
-				<el-button type="primary" @click="onSubmit">Create</el-button>
+				<el-button type="primary" @click="emitGlobalSendFormEvent()">Create</el-button>
 				<el-button>Cancel</el-button>
 			</el-form-item>
 		</el-form>
@@ -46,10 +46,21 @@
 </template>
 
 <script>
+	import { EventBus } from '../event-bus.js'
+
 	export default {
 		name: 'CurrencyForm',
 		methods: {
-			onSubmit: function () {
+			emitGlobalSendFormEvent() {
+				const formData = {
+					sellValue: this.emptySellValue,
+					sellAmount: this.sellAmount,
+					buyValue: this.emptyBuyValue,
+					buyAmount: this.buyAmount
+				};
+				// Send the event on a channel (get-form-data) with a payload (the form data)
+				EventBus.$emit('get-form-data', formData);
+			},
 			}
 		},
 		data() {
