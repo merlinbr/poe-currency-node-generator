@@ -11,10 +11,18 @@
 
 <script>
 	import CurrencyForm from './components/CurrencyForm.vue'
+	import { EventBus } from './event-bus.js'
+
+	// Listen for the get-form-data event and its payload (formData).
+	EventBus.$on('get-form-data', formData => {
+		this.formData = formData;
+	});
 
 	export default {
 		data() {
-			return {}
+			return {
+				formData: null
+			}
 		},
 		name: 'app',
 		components: {
