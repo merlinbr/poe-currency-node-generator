@@ -39,7 +39,7 @@
 			</el-form-item>
 			<el-form-item>
 				<el-button type="primary" @click="emitGlobalSendFormEvent()">Create</el-button>
-				<el-button>Cancel</el-button>
+				<el-button @click="resetForm">Reset</el-button>
 			</el-form-item>
 		</el-form>
 	</el-main>
@@ -58,9 +58,15 @@
 					buyValue: this.emptyBuyValue,
 					buyAmount: this.buyAmount
 				};
+				this.resetForm();
 				// Send the event on a channel (get-form-data) with a payload (the form data)
 				EventBus.$emit('get-form-data', formData);
 			},
+			resetForm() {
+				this.emptySellValue = '';
+				this.sellAmount = '';
+				this.emptyBuyValue = '';
+				this.buyAmount = ''
 			}
 		},
 		data() {
