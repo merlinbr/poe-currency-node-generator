@@ -46,6 +46,13 @@
 					}
 				});
 			},
+			generateCurrencyNode() {
+				const buyAmount = this.formData.buyAmount;
+				const sellAmount = this.formData.sellAmount;
+				const buyCurrency = this.formData.buyValue;
+				
+				this.node = '~b/o ' + buyAmount + '/' + sellAmount + ' ' + buyCurrency;
+			}
 		}
 	}
 </script>
