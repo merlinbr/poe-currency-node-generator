@@ -43,5 +43,8 @@
 		text-align: center;
 		color: white;
 		margin-top: 30px;
+		width: 27em;
+		margin-left: auto;
+		margin-right: auto;
 	}
 </style>
