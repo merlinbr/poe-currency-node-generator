@@ -5,6 +5,15 @@
 				<h2>Poe Currency Node Generator</h2>
 			</el-header>
 			<CurrencyForm></CurrencyForm>
+			<el-main v-if="formData">
+				<el-row :gutter="20">
+					<el-col align="center" class="grid-content">
+						<el-button>
+							{{ node }}
+						</el-button>
+					</el-col>
+				</el-row>
+			</el-main>
 		</el-container>
 	</div>
 </template>
@@ -16,7 +25,8 @@
 	export default {
 		data() {
 			return {
-				formData: null
+				formData: null,
+				node: ''
 			}
 		},
 		mounted() {
