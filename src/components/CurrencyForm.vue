@@ -8,7 +8,7 @@
 					</el-col>
 				</el-row>
 				<el-row>
-					<el-select v-model="emptySellValue" filterable placeholder="Select" class="currency-select">
+					<el-select v-model="buyValue" filterable placeholder="Select" class="currency-select">
 						<el-option
 								v-for="item in form.options"
 								:key="item.value"
@@ -16,7 +16,7 @@
 								:value="item.value">
 						</el-option>
 					</el-select>
-					<el-input placeholder="Amount" type="number" v-model="sellAmount" class="currency-Amount"></el-input>
+					<el-input placeholder="Amount" type="number" v-model="buyAmount" class="currency-Amount"></el-input>
 				</el-row>
 			</el-form-item>
 			<el-form-item>
@@ -26,7 +26,7 @@
 					</el-col>
 				</el-row>
 				<el-row>
-					<el-select v-model="emptyBuyValue" filterable placeholder="Select" class="currency-select">
+					<el-select v-model="sellValue" filterable placeholder="Select" class="currency-select">
 						<el-option
 								v-for="item in form.options"
 								:key="item.value"
@@ -34,7 +34,7 @@
 								:value="item.value">
 						</el-option>
 					</el-select>
-					<el-input placeholder="Amount" type="number" v-model="buyAmount" class="currency-Amount"></el-input>
+					<el-input placeholder="Amount" type="number" v-model="sellAmount" class="currency-Amount"></el-input>
 				</el-row>
 			</el-form-item>
 			<el-form-item>
@@ -52,27 +52,48 @@
 		name: 'CurrencyForm',
 		methods: {
 			emitGlobalSendFormEvent() {
-				const formData = {
-					sellValue: this.emptySellValue,
-					sellAmount: this.sellAmount,
-					buyValue: this.emptyBuyValue,
-					buyAmount: this.buyAmount
-				};
-				this.resetForm();
-				// Send the event on a channel (get-form-data) with a payload (the form data)
-				EventBus.$emit('get-form-data', formData);
+				if ( this.allValuesSet() ) {
+					const formValues = {
+						sellValue: this.sellValue,
+						sellAmount: this.sellAmount,
+						buyValue: this.buyValue,
+						buyAmount: this.buyAmount
+					};
+
+					this.resetForm();
+					// Send the event on a channel (get-form-data) with a payload (the form data)
+					EventBus.$emit('get-form-data', formValues);
+				}
 			},
 			resetForm() {
-				this.emptySellValue = '';
-				this.sellAmount = '';
-				this.emptyBuyValue = '';
-				this.buyAmount = ''
+				this.sellValue = null;
+				this.sellAmount = null;
+				this.buyValue = null;
+				this.buyAmount = null
+			},
+			allValuesSet() {
+				let allValuesSet = true;
+
+				if (this.sellValue === null) {
+					allValuesSet = false;
+				}
+				if (this.sellAmount === null) {
+					allValuesSet = false;
+				}
+				if (this.buyValue === null) {
+					allValuesSet = false;
+				}
+				if (this.buyAmount === null) {
+					allValuesSet = false;
+				}
+
+				return allValuesSet;
 			}
 		},
 		data() {
 			return {
-				emptySellValue: '',
-				emptyBuyValue: '',
+				sellValue: '',
+				buyValue: '',
 				sellAmount: '',
 				buyAmount: '',
 				form: {
