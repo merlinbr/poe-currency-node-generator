@@ -4,7 +4,7 @@
 			<el-form-item>
 				<el-row :gutter="20" align="center">
 					<el-col class="grid-content">
-						<h2 class="sub-title">Currency that you want to sell</h2>
+						<h2 class="sub-title">Currency that I want to buy</h2>
 					</el-col>
 				</el-row>
 				<el-row>
@@ -22,7 +22,7 @@
 			<el-form-item>
 				<el-row :gutter="20" align="center">
 					<el-col class="grid-content">
-						<h2 class="sub-title">Currency that you want to buy</h2>
+						<h2 class="sub-title">Currency that I want to sell</h2>
 					</el-col>
 				</el-row>
 				<el-row>
@@ -38,7 +38,7 @@
 				</el-row>
 			</el-form-item>
 			<el-form-item>
-				<el-button type="primary" @click="emitGlobalSendFormEvent()">Create</el-button>
+				<el-button type="primary" @click="emitGlobalSendFormEvent">Create Node</el-button>
 				<el-button @click="resetForm">Reset</el-button>
 			</el-form-item>
 		</el-form>
