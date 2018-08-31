@@ -52,6 +52,25 @@
 				const buyCurrency = this.formData.buyValue;
 				
 				this.node = '~b/o ' + buyAmount + '/' + sellAmount + ' ' + buyCurrency;
+				this.copyToClipboard();
+			},
+			copyToClipboard() {
+				/* Create placeholder textArea for the select function */
+				let textArea = document.createElement("textarea");
+
+				/* Set textArea value to the node */
+				textArea.value = this.node;
+				document.body.appendChild(textArea);
+
+				/* Select the text field of the textArea */
+				textArea.select();
+
+				/* Copy the text from the text field */
+				document.execCommand("Copy");
+
+				/* Remove placeholder textArea */
+				textArea.remove();
+
 			}
 		}
 	}
