@@ -6,8 +6,8 @@
 			</el-header>
 			<CurrencyForm></CurrencyForm>
 			<el-row :gutter="20" v-if="formData">
-				Press to copy
-				<el-col align="center" class="grid-content">
+				<el-col align="center" class="grid-content" :span="14" :offset="5">
+					Press to copy <br>
 					<el-button id="note-btn" @click="copyToClipboard">
 						{{ note }}
 					</el-button>
@@ -96,7 +96,7 @@
 		-moz-osx-font-smoothing: grayscale;
 		text-align: center;
 		color: white;
-		margin-top: 30px;
+		margin-top: 10px;
 		width: 27em;
 		margin-left: auto;
 		margin-right: auto;
@@ -104,5 +104,6 @@
 
 	#note-btn {
 		margin-top: 5px;
+		margin-bottom: 5px;
 	}
 </style>
