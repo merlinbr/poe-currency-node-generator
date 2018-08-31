@@ -11,6 +11,7 @@
 					<el-button id="note-btn" @click="copyToClipboard">
 						{{ note }}
 					</el-button>
+					<br> (Select "Note" on "{{ this.formData.sellValueLabel }}" in your stash and paste the created note)
 				</el-col>
 			</el-row>
 		</el-container>
