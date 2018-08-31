@@ -8,7 +8,7 @@
 			<el-main v-if="formData">
 				<el-row :gutter="20">
 					<el-col align="center" class="grid-content">
-						<el-button>
+					<el-button id="node-btn" @click="copyToClipboard">
 							{{ node }}
 						</el-button>
 					</el-col>
@@ -53,6 +53,7 @@
 				
 				this.node = '~b/o ' + buyAmount + '/' + sellAmount + ' ' + buyCurrency;
 				this.copyToClipboard();
+				this.openClipboardSuccessNotification();
 			},
 			copyToClipboard() {
 				/* Create placeholder textArea for the select function */
@@ -71,6 +72,13 @@
 				/* Remove placeholder textArea */
 				textArea.remove();
 
+				this.openClipboardSuccessNotification();
+			},
+			openClipboardSuccessNotification() {
+				this.$message({
+					message: 'Copied to clipboard.',
+					type: 'success'
+				});
 			}
 		}
 	}
