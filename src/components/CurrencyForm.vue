@@ -69,7 +69,9 @@
 				this.sellValue = null;
 				this.sellAmount = null;
 				this.buyValue = null;
-				this.buyAmount = null
+				this.buyAmount = null;
+
+				EventBus.$emit('get-form-data', null);
 			},
 			allValuesSet() {
 				let allValuesSet = true;

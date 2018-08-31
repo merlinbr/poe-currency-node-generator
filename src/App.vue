@@ -42,6 +42,8 @@
 					if (formValues) {
 						this.formData = formValues;
 						this.generateCurrencyNode();
+					} else {
+						this.formData = null;
 					}
 				});
 			},
