@@ -2,14 +2,14 @@
 	<div id="app">
 		<el-container>
 			<el-header>
-				<h2>Poe Currency Node Generator</h2>
+				<h2>Poe Currency Note Generator</h2>
 			</el-header>
 			<CurrencyForm></CurrencyForm>
 			<el-row :gutter="20" v-if="formData">
 				Press to copy
 				<el-col align="center" class="grid-content">
-					<el-button id="node-btn" @click="copyToClipboard">
-						{{ node }}
+					<el-button id="note-btn" @click="copyToClipboard">
+						{{ note }}
 					</el-button>
 				</el-col>
 			</el-row>
@@ -25,7 +25,7 @@
 		data() {
 			return {
 				formData: null,
-				node: ''
+				note: ''
 			}
 		},
 		mounted() {
@@ -41,18 +41,18 @@
 				EventBus.$on('get-form-data', formValues => {
 					if (formValues) {
 						this.formData = formValues;
-						this.generateCurrencyNode();
+						this.generateCurrencyNote();
 					} else {
 						this.formData = null;
 					}
 				});
 			},
-			generateCurrencyNode() {
+			generateCurrencyNote() {
 				const buyAmount = this.formData.buyAmount;
 				const sellAmount = this.formData.sellAmount;
 				const buyCurrency = this.formData.buyValue;
 				
-				this.node = '~b/o ' + buyAmount + '/' + sellAmount + ' ' + buyCurrency;
+				this.note = '~b/o ' + buyAmount + '/' + sellAmount + ' ' + buyCurrency;
 				this.copyToClipboard();
 				this.openClipboardSuccessNotification();
 			},
@@ -60,8 +60,8 @@
 				/* Create placeholder textArea for the select function */
 				let textArea = document.createElement("textarea");
 
-				/* Set textArea value to the node */
-				textArea.value = this.node;
+				/* Set textArea value to the note */
+				textArea.value = this.note;
 				document.body.appendChild(textArea);
 
 				/* Select the text field of the textArea */
@@ -102,7 +102,7 @@
 		margin-right: auto;
 	}
 
-	#node-btn {
+	#note-btn {
 		margin-top: 5px;
 	}
 </style>

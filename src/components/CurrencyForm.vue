@@ -38,7 +38,7 @@
 				</el-row>
 			</el-form-item>
 			<el-form-item>
-				<el-button type="primary" @click="emitGlobalSendFormEvent">Create Node</el-button>
+				<el-button type="primary" @click="emitGlobalSendFormEvent">Create Note</el-button>
 				<el-button @click="resetForm">Reset</el-button>
 			</el-form-item>
 		</el-form>
