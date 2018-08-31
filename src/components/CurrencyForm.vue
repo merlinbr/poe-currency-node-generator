@@ -56,6 +56,7 @@
 					const formValues = {
 						sellValue: this.sellValue,
 						sellAmount: this.sellAmount,
+						sellValueLabel: this.getSellValueLabel(),
 						buyValue: this.buyValue,
 						buyAmount: this.buyAmount
 					};
@@ -90,6 +91,13 @@
 				}
 
 				return allValuesSet;
+			},
+			getSellValueLabel() {
+				for (let i = 0; i < this.form.options.length; i++) {
+					if (this.form.options[i].value === this.sellValue) {
+						return this.form.options[i].label;
+					}
+				}
 			}
 		},
 		data() {
