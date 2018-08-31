@@ -5,15 +5,14 @@
 				<h2>Poe Currency Node Generator</h2>
 			</el-header>
 			<CurrencyForm></CurrencyForm>
-			<el-main v-if="formData">
-				<el-row :gutter="20">
-					<el-col align="center" class="grid-content">
+			<el-row :gutter="20" v-if="formData">
+				Press to copy
+				<el-col align="center" class="grid-content">
 					<el-button id="node-btn" @click="copyToClipboard">
-							{{ node }}
-						</el-button>
-					</el-col>
-				</el-row>
-			</el-main>
+						{{ node }}
+					</el-button>
+				</el-col>
+			</el-row>
 		</el-container>
 	</div>
 </template>
@@ -99,5 +98,9 @@
 		width: 27em;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	#node-btn {
+		margin-top: 5px;
 	}
 </style>
